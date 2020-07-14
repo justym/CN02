@@ -10,7 +10,7 @@ char *CaesarDecrypt(int, char *);
 
 int isAlphabet(char);
 
-int main()
+int main(int argc, char *argv[])
 {
     char plaintext[1024];
     char ciphertext[1024];
@@ -18,22 +18,39 @@ int main()
 
     int key;
 
+    if (argc <= 1)
+    {
+        printf("Please add arguments e or d\n");
+        printf("e: encrypt function\n");
+        printf("d: decrypt function\n");
+        return 0;
+    }
+
     //Input plaintex and key.
     //Check the validity of key (key must be an interger number between 0 ~ 25)
-    printf("Input plain text: ");
-    scanf("%[^\n]%*c", plaintext);
-    printf("Input key (an interger from 1 to 25): ");
-    scanf("%d", &key);
+    if (*argv[1] == 'e')
+    {
+        printf("Input plain text: ");
+        scanf("%[^\n]%*c", plaintext);
+        printf("Input key (an interger from 1 to 25): ");
+        scanf("%d", &key);
 
-    //Perform Caesar Encryption: CaesarEncrypt(key, plaintext) and print out the ciphertext*/
-    char *buff = CaesarEncrypt(key, plaintext);
-    strcpy(ciphertext, buff);
-    printf("Cipher Text: %s\n", ciphertext);
-
-    //Perform Caesar Decryption: CaesarDecrypt(key, ciphertext) and print out the decryted ciphertext (decrypttext)
-    buff = CaesarDecrypt(key, ciphertext);
-    strcpy(decrypttext, buff);
-    printf("Decrypted Text: %s\n", decrypttext);
+        //Perform Caesar Encryption: CaesarEncrypt(key, plaintext) and print out the ciphertext*/
+        char *buff = CaesarEncrypt(key, plaintext);
+        strcpy(ciphertext, buff);
+        printf("Cipher Text: %s\n", ciphertext);
+    }
+    else if (*argv[1] == 'd')
+    {
+        //Perform Caesar Decryption: CaesarDecrypt(key, ciphertext) and print out the decryted ciphertext (decrypttext)
+        printf("Input cipher text: ");
+        scanf("%[^\n]%*c", ciphertext);
+        printf("Input key (an interger from 1 to 25): ");
+        scanf("%d", &key);
+        char *buff = CaesarDecrypt(key, ciphertext);
+        strcpy(decrypttext, buff);
+        printf("Decrypted Text: %s\n", decrypttext);
+    }
 
     return 0;
 }

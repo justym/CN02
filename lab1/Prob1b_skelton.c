@@ -16,7 +16,7 @@ int main()
     char ciphertext[1024];
     char keyword[1024];
 
-    printf("Input plain text: ");
+    printf("Input cipher text: ");
     scanf("%[^\n]%*c", ciphertext);
     printf("Input keyword: ");
     scanf("%[^\n]%*c", keyword);

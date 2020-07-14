@@ -27,8 +27,8 @@ char findKey(char, char *);
 int main(int argc, char *argv[])
 {
 
-    //char ciphertext[1024] = "ztmn pxtne cfa peqef kecnp cjt tmn zcwsenp ontmjsw ztnws tf wsvp xtfwvfefw, c feb fcwvtf, xtfxevqea vf gvoenwk, cfa aeavxcwea wt wse rntrtpvwvtf wscw cgg lef cne xnecwea eymcg";
-    char ciphertext[1024] = "rnc qwr fv uwmrmgb eczwcr hceeqbce mgrcjjmbmajc rf rnfec unf qwc mg dfeeceemfg fv rnc kco qgx tgmgrcjjmbmajc rf qjj frncwe nqe accg ertxmcx vfw zcgrtwmce. rnc tecvtjgcee fv etzn hceeqbce, cedczmqjjo mg rmhc fv uqw, me faymfte ";
+    char ciphertext[1024] = "ztmn pxtne cfa peqef kecnp cjt tmn zcwsenp ontmjsw ztnws tf wsvp xtfwvfefw, c feb fcwvtf, xtfxevqea vf gvoenwk, cfa aeavxcwea wt wse rntrtpvwvtf wscw cgg lef cne xnecwea eymcg";
+    char ciphertextTest[1024] = "rnc qwr fv uwmrmgb eczwcr hceeqbce mgrcjjmbmajc rf rnfec unf qwc mg dfeeceemfg fv rnc kco qgx tgmgrcjjmbmajc rf qjj frncwe nqe accg ertxmcx vfw zcgrtwmce. rnc tecvtjgcee fv etzn hceeqbce, cedczmqjjo mg rmhc fv uqw, me faymfte ";
     char plaintext[1024] = "";
     char *subs = argv[1];
 
@@ -106,8 +106,7 @@ char *monoalphabetic_substitution(char *ciphertext, char *subs)
         //char tmp = ciphertext[i];
         if (isAlphabet(ciphertext[i]) == 1)
         {
-            if (strlen(subs) == 26)
-                plaintext[i] = findKey(ciphertext[i], subs);
+            plaintext[i] = findKey(ciphertext[i], subs);
         }
         else if (isAlphabet(ciphertext[i]) != 1)
         {
